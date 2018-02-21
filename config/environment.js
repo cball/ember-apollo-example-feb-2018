@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(environment) {
+  console.log(process.env.GITHUB_TOKEN);
   let ENV = {
     modulePrefix: 'apollo-test',
     environment,
@@ -23,9 +24,11 @@ module.exports = function(environment) {
     },
 
     apollo: {
-      apiURL: 'https://api.yelp.com/v3/graphql',
+      // apiURL: 'https://api.yelp.com/v3/graphql',
+      apiURL: 'https://api.github.com/graphql',
+      // requestCredentials: 'include',
       headers: {
-        authorization: `Bearer ${process.env.YELP_TOKEN}`
+        authorization: `Bearer ${process.env.GITHUB_TOKEN}`
       }
     }
   };
