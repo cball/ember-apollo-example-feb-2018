@@ -1,7 +1,20 @@
 #import '../fragments/repo-info'
 
-query($login: String!, $repoLimit: Int = 20) {
-  organization(login: $login) {
+query($login1: String!, $login2: String!, $repoLimit: Int = 20) {
+  org1: organization(login: $login1) {
+    login
+    avatarUrl
+    repositories(
+      first: $repoLimit
+      orderBy: { field: STARGAZERS, direction: DESC }
+    ) {
+      nodes {
+        ...RepoInfo
+      }
+    }
+  }
+
+  org2: organization(login: $login2) {
     login
     avatarUrl
     repositories(

@@ -1,33 +1,19 @@
 <h2>Classic structure example</h2>
 
-<div class="org">
-  <img src={{model.avatarUrl}} class="avatar"/>
-  <div class="login">{{model.login}}</div>
-</div>
+<div class="org-comparison">
+  <div class="comparison">
+    {{repo-issues
+      organization=model.org1
+      onStarRepo=(route-action 'starRepo')
+      onUnstarRepo=(route-action 'unstarRepo')
+    }}
+  </div>
 
-<h3>Repos</h3>
-<ul>
-  {{!-- GitHub uses "nodes" here... most GQL APIs dont --}}
-  {{#each model.repositories.nodes as |repo|}}
-    <li class="repo">
-      <div>
-        <div>{{repo.name}}</div>
-        <div>🌟 {{repo.stargazers.totalCount}} Stars 🌟</div>
-        <ul class="issues">
-          {{#each repo.issues.nodes as |issue|}}
-            <li class="issue">
-              <a href={{issue.url}} target="_blank">
-                <div class="title">{{issue.title}}</div>
-                <div class="author-info"><img src={{issue.author.avatarUrl}} /> {{issue.author.login}}</div>
-              </a>
-            </li>
-          {{else}}
-            <li>No issues. Is this really a GitHub repo?</li>
-          {{/each}}
-        </ul>
-      </div>
-    </li>
-  {{else}}
-    <li>Nada.</li>
-  {{/each}}
-</ul>
+  <div class="comparison">
+    {{repo-issues
+      organization=model.org2
+      onStarRepo=(route-action 'starRepo')
+      onUnstarRepo=(route-action 'unstarRepo')
+    }}
+  </div>
+</div>
