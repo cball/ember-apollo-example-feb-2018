@@ -1,6 +1,8 @@
 fragment RepoInfo on Repository {
+  id
   name
   url
+  viewerHasStarred
   stargazers {
     totalCount
   }

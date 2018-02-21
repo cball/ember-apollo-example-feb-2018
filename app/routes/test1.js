@@ -9,5 +9,16 @@ export default Route.extend(RouteQueryManager, {
     const variables = { login1: 'emberjs', login2: 'reactjs', repoLimit: 2 };
     return this.get('apollo').query({ query, variables });
   },
+
+  actions: {
+    starRepo(repo) {
+      const variables = { id: repo.id };
+      this.get('apollo').mutate({ mutation: addStar, variables });
+    },
+
+    unstarRepo(repo) {
+      const variables = { id: repo.id };
+      this.get('apollo').mutate({ mutation: removeStar, variables });
+    }
   }
 });
