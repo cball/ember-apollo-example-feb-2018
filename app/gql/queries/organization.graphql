@@ -1,10 +1,13 @@
 #import '../fragments/repo-info'
 
-query($login: String!) {
+query($login: String!, $repoLimit: Int = 20) {
   organization(login: $login) {
     login
     avatarUrl
-    repositories(first: 20, orderBy: { field: STARGAZERS, direction: DESC }) {
+    repositories(
+      first: $repoLimit
+      orderBy: { field: STARGAZERS, direction: DESC }
+    ) {
       nodes {
         ...RepoInfo
       }
