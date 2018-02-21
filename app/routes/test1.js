@@ -7,7 +7,7 @@ import removeStar from '../gql/mutations/removeStar';
 export default Route.extend(RouteQueryManager, {
   model() {
     const variables = { login1: 'emberjs', login2: 'reactjs', repoLimit: 2 };
-    return this.get('apollo').query({ query, variables });
+    return this.get('apollo').watchQuery({ query, variables });
   },
 
   actions: {
