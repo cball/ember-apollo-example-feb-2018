@@ -78,3 +78,16 @@ nav a.active {
   display: flex;
   align-items: center;
 }
+
+.org-comparison {
+  display: flex;
+}
+
+.comparison {
+  flex: 1;
+  transition: background-color linear 0.3s;
+}
+
+.comparison:hover {
+  background: rgba(215, 144, 191, 0.2);
+}
