@@ -1,5 +1,34 @@
 query {
   organization(login: "emberjs") {
     login
+    avatarUrl
+    repositories(first: 20, orderBy: { field: STARGAZERS, direction: DESC }) {
+      nodes {
+        name
+        url
+        stargazers {
+          totalCount
+        }
+        issues(last: 5) {
+          totalCount
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
+          nodes {
+            title
+            url
+            author {
+              avatarUrl
+              login
+              resourcePath
+              url
+            }
+          }
+        }
+      }
+    }
   }
 }

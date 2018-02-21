@@ -4,6 +4,6 @@ import query from '../gql/queries/organization';
 
 export default Route.extend(RouteQueryManager, {
   model() {
-    return this.get('apollo').query({ query }, 'search');
+    return this.get('apollo').query({ query }, 'organization');
   }
 });
