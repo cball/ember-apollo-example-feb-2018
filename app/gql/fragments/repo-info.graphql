@@ -1,0 +1,26 @@
+fragment RepoInfo on Repository {
+  name
+  url
+  stargazers {
+    totalCount
+  }
+  issues(last: 5) {
+    totalCount
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+    nodes {
+      title
+      url
+      author {
+        avatarUrl
+        login
+        resourcePath
+        url
+      }
+    }
+  }
+}

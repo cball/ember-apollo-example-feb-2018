@@ -4,6 +4,7 @@ import query from '../gql/queries/organization';
 
 export default Route.extend(RouteQueryManager, {
   model() {
-    return this.get('apollo').query({ query }, 'organization');
+    const variables = { login: 'reactjs' };
+    return this.get('apollo').query({ query, variables }, 'organization');
   }
 });
