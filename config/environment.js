@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function(environment) {
-  console.log(process.env.GITHUB_TOKEN);
   let ENV = {
     modulePrefix: 'apollo-test',
     environment,
