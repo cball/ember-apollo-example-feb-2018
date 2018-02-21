@@ -23,7 +23,10 @@ module.exports = function(environment) {
     },
 
     apollo: {
-      apiURL: 'https://api.yelp.com/v3/graphql'
+      apiURL: 'https://api.yelp.com/v3/graphql',
+      headers: {
+        authorization: `Bearer ${process.env.YELP_TOKEN}`
+      }
     }
   };
 
