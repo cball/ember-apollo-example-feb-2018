@@ -1,0 +1,19 @@
+<h2>Feature structure example (yes, I'm avoiding the word pod)</h2>
+
+<div class="org-comparison">
+  <div class="comparison">
+    {{repo-issues
+      organization=model.org1
+      onStarRepo=(route-action 'starRepo')
+      onUnstarRepo=(route-action 'unstarRepo')
+    }}
+  </div>
+
+  <div class="comparison">
+    {{repo-issues
+      organization=model.org2
+      onStarRepo=(route-action 'starRepo')
+      onUnstarRepo=(route-action 'unstarRepo')
+    }}
+  </div>
+</div>
